@@ -18,15 +18,15 @@ jobs:
     - name: Set up Java version
       uses: actions/setup-java@v1
       with:
-        java-version: '11'
+        java-version: '8'
 
     - name: Build with Maven
       run: mvn clean install
-      
+
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'koushik'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_32dbf2885d6145b7a64cb55284d5c3b6 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_e14be11bec3e4f609d745777dbe17170 }}
         package: '${{ github.workspace }}/target/*.jar'
